@@ -1,12 +1,17 @@
 import DumbSignUp from './DumbSignUp'
-import  { api } from "../../config"
+import { api } from '../../config'
+
 const SignUpForm = () => {
 
-    const endpoint = "signup"
+    const endpoint = 'signup'
     const handleSubmit = async (values: FormData) => {
-        // @ts-ignore
-        await api.makeSignupReq(endpoint, values.name, values.email, values.password).then(console.log)
-            .catch((err: any) => console.log(err))
+        try {
+            // @ts-ignore
+            const response = await api.makeSignupReq(endpoint, values.name, values.email, values.password);
+            console.log(response);
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     return <DumbSignUp handleSubmit={handleSubmit}/>

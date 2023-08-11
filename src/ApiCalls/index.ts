@@ -19,10 +19,10 @@ export class ApiCaller {
             throw error;
         }
     }
-    async makeSignupReq(endpoint: string, name: string, email: string, password: string): Promise<any> {
+    async makeSignupReq(endpoint: string, name: string, email: string, string: string): Promise<any> {
         const url = `${this.baseUrl}/${endpoint}`;
         const requestOptions:
-            RequestInit = {method: 'POST', headers: {'Content-Type': 'application/json',}, body: JSON.stringify({name, email, password})};
+            RequestInit = {method: 'POST', headers: {'Content-Type': 'application/json',}, body: JSON.stringify({name, email, string})};
 
         try {
             const response = await fetch(url, requestOptions);
